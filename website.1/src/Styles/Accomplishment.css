@@ -1,0 +1,210 @@
+.fir-Acom {
+  width: 86%;
+    border-radius: var(--radius-lg);
+  /* max-width: 800px; */
+  margin: 0 auto;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.315);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.fir-Acom h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #F0F0F0;
+}
+.online-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.online-header h5 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+.btn-add {
+  padding: 0.5rem 1rem;
+  background-color: #DF9090;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-height: 36px;
+}
+.btn-add:hover {
+  background-color: #EFA4AE;
+}
+.fir-Acom p {
+  color: #6B7280;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+.showacc {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.showacc > div {
+  background-color: #F8F9FA;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.showacc > div:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.showacc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.showacc li:first-child {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+.showacc li:last-child {
+  color: #3B82F6;
+  font-size: 0.875rem;
+  word-break: break-all;
+}
+.pro-del {
+  background: none;
+  border: none;
+  color: #EF4444;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+.pro-del:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+.onlinepro {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.3s ease-out;
+}
+.onlinepro p {
+  color: #6B7280;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+.onlinepro h4 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin: 0 0 0.5rem 0;
+}
+.onlinepro input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #E0E0E0;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+.onlinepro input:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+.Action-model {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.Accsave,
+.Accdel {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 42px;
+}
+.Accsave {
+  background-color: white;
+  color: #6B7280;
+  border: 1px solid #E0E0E0;
+}
+.Accsave:hover {
+  background-color: #F3F4F6;
+}
+.Accdel {
+  background-color: #3B82F6;
+  color: white;
+  border: none;
+}
+.Accdel:hover {
+  background-color: #2563EB;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Tablet styles */
+@media (min-width: 640px) {
+  .fir-Acom {
+    padding: 1.5rem;
+  }
+  .fir-Acom h3 {
+    font-size: 1.75rem;
+  }
+  .showacc > div {
+    padding: 1.25rem;
+  }
+}
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .fir-Acom {
+    padding: 2rem;
+  }
+  .fir-Acom h3 {
+    font-size: 1.875rem;
+  }
+  .showacc {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+}

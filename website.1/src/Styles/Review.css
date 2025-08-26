@@ -1,0 +1,266 @@
+/* === Container Setup === */
+.review-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === Header Section === */
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.review-header h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.review-header-right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 16px;
+}
+
+/* === Review Button === */
+.review-btn {
+  padding: 10px 18px;
+  background: linear-gradient(45deg, #4b6cb7, #182848);
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.review-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* === Carousel === */
+.review-carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.review-carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 45s linear infinite;
+  width: max-content;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.review-carousel-wrapper:hover .review-carousel-track {
+  animation-play-state: paused;
+}
+
+/* === Review Cards === */
+.review-card {
+  flex: 0 0 300px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+  min-width: 280px;
+  border: 1px solid #f0f0f0;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.google-logo {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.review-date {
+  font-size: 13px;
+  color: #888;
+}
+
+.review-stars {
+  color: #fbbc04;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* === Modal Overlay === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* === Modal Content === */
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === Close Button === */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #999;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+/* === Form Styling === */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-form h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border 0.2s ease;
+}
+
+.review-form input:focus,
+.review-form textarea:focus {
+  outline: none;
+  border-color: #4b6cb7;
+  box-shadow: 0 0 0 2px rgba(75, 108, 183, 0.2);
+}
+
+.review-form button {
+  background: #4b6cb7;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.review-form button:hover {
+  background: #3951a3;
+  transform: scale(1.02);
+}
+
+/* === Star Rating === */
+.star-rating {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  transition: transform 0.2s ease;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+/* === Responsive Fix === */
+@media (max-width: 768px) {
+  .review-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .review-header-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .review-carousel-track {
+    flex-wrap: nowrap;
+  }
+}

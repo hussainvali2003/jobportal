@@ -1,0 +1,305 @@
+.post-job-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 60px;
+}
+
+.post-job-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.post-job-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.input-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-icon {
+  font-size: 14px;
+  color: #3498db;
+}
+
+.form-input {
+  padding: 14px 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: white;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.readonly-input {
+  background: #f8f9fa !important;
+  color: #6c757d !important;
+  cursor: not-allowed;
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Job ID Input Styles */
+.job-id-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.job-id-input {
+  flex: 1;
+  padding-right: 45px; /* Space for validation icon */
+}
+
+.job-id-validation {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.validation-loading {
+  font-size: 16px;
+  color: #3498db;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.validation-icon {
+  font-size: 16px;
+}
+
+.validation-icon.valid {
+  color: #27ae60;
+}
+
+.validation-icon.invalid {
+  color: #e74c3c;
+}
+
+.validation-message {
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.validation-message.valid {
+  color: #27ae60;
+}
+
+.validation-message.invalid {
+  color: #e74c3c;
+}
+
+.input-help {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  background: #95a5a6;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .post-job-container {
+    padding: 20px 15px;
+  }
+  
+  .post-job-title {
+    font-size: 2rem;
+  }
+  
+  .post-job-form {
+    padding: 30px 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-job-title {
+    font-size: 1.5rem;
+  }
+  
+  .post-job-form {
+    padding: 25px 15px;
+  }
+  
+  .form-input {
+    padding: 12px 14px;
+  }
+  
+  .submit-button {
+    padding: 14px 30px;
+    font-size: 14px;
+  }
+}
+
+/* Animation for form appearance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-job-form {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Focus states for better accessibility */
+.form-input:focus,
+.form-textarea:focus {
+  transform: translateY(-1px);
+}
+
+/* Placeholder styling */
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+/* Select styling */
+select.form-input {
+  cursor: pointer;
+}
+
+select.form-input option {
+  padding: 10px;
+}
+
+/* New Field Styling */
+.form-row .form-group:has(.input-icon) .input-label {
+  color: #2c3e50;
+}
+
+.form-row .form-group:has(.input-icon) .form-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Enhanced styling for new fields */
+.form-group:has([name="jobType"]) .form-input,
+.form-group:has([name="openings"]) .form-input,
+.form-group:has([name="noticePeriod"]) .form-input {
+  border: 2px solid #e1e8ed;
+  transition: all 0.3s ease;
+}
+
+.form-group:has([name="jobType"]) .form-input:focus,
+.form-group:has([name="openings"]) .form-input:focus,
+.form-group:has([name="noticePeriod"]) .form-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}

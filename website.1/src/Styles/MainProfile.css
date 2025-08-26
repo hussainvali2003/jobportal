@@ -1,0 +1,204 @@
+:root {
+  --resume-gradient: linear-gradient(135deg, #F6D365 0%, #EB643E 100%);
+  --education-gradient: linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 100%);
+  --skills-gradient: linear-gradient(135deg, #84FAB0 0%, #8FD3F4 100%);
+  --accomplishment-gradient: linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%);
+  --it-skills-gradient: linear-gradient(135deg, #A18CD1 0%, #FBC2EB 100%);
+  --projects-gradient: linear-gradient(135deg, #FBC2EB 0%, #A6C1EE 100%);
+  --career-gradient: linear-gradient(135deg, #FFC3A0 0%, #FFAFBD 100%);
+  --personal-gradient: linear-gradient(135deg, #D4FC79 0%, #96E6A1 100%);
+}
+.main-profile-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F5F7FA 0%, #C3CFE2 100%);
+  padding: 20px;
+}
+.full-width-dropdown {
+  scroll-margin-top: 20px;
+}
+.main-profile-container {
+  scroll-behavior: smooth;
+}
+.main-profile-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.main-profile-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+.profile-left-section {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+.profile-right-section {
+  background: transparent;
+  border-radius: 16px;
+  min-height: 600px;
+  margin-top: 30px;
+}
+/* Full Width Dropdown Styles */
+.full-width-dropdown {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  margin-top: 0;
+}
+.full-width-dropdown.visible {
+  max-height: 1000px;
+  opacity: 1;
+  margin-top: 20px;
+}
+.dropdown-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+}
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, #a0c6eb 0%, #aba6ee 100%);
+  /* background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.section-titlemp {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 20px auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  text-align: center; /* this works for child inline content */
+}
+.section-titlemp::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #FF6B6B, #FFD93D);
+  border-radius: 2px;
+}
+.close-btn2 {
+  background: white;
+  border: none;
+  color: rgb(50, 28, 92);
+  font-size: 2em;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+.dropdown-body {
+  padding: 28px;
+  background: white;
+  max-height: 600px;
+  overflow-y: auto;
+  min-height: 200px;
+}
+.fallback-content {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+.fallback-content p {
+  font-size: 1.2em;
+  margin: 0;
+  font-weight: 300;
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-profile-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .main-profile-container {
+    padding: 16px;
+  }
+  .main-profile-wrapper {
+    gap: 16px;
+  }
+  .main-profile-layout {
+    gap: 20px;
+  }
+  .profile-left-section {
+    padding: 20px;
+  }
+  .dropdown-header {
+    padding: 20px 24px;
+  }
+  .section-title {
+    font-size: 1.3em;
+  }
+  .dropdown-body {
+    padding: 24px;
+  }
+  .full-width-dropdown.visible {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .main-profile-container {
+    padding: 12px;
+  }
+  .main-profile-wrapper {
+    gap: 12px;
+  }
+  .main-profile-layout {
+    gap: 16px;
+  }
+  .profile-left-section {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .dropdown-header {
+    padding: 16px 20px;
+  }
+  .section-title {
+    font-size: 1.2em;
+  }
+  .dropdown-body {
+    padding: 20px;
+  }
+  .close-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.8em;
+  }
+  .full-width-dropdown.visible {
+    margin-top: 12px;
+  }
+}

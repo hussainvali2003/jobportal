@@ -1,0 +1,363 @@
+/* Base Styles */
+.my-application-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #2d3748;
+  margin-top: 80px;
+}
+
+/* Card Styles */
+.user-info-card,
+.table-card,
+.support-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* User Info Section */
+.user-info-card h2 {
+  color: #1a365d;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.user-details {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: #4a5568;
+  min-width: 80px;
+}
+
+.detail-value {
+  color: #1a365d;
+  font-weight: 500;
+}
+
+/* Table Styles */
+.applications-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow-x: auto;
+}
+
+.applications-table th {
+  background-color: #3182ce;
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+  white-space: nowrap;
+}
+
+.applications-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #edf2f7;
+  white-space: nowrap;
+}
+
+.applications-table tr:not(:last-child) td {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.applications-table tr:hover td {
+  background-color: #f7fafc;
+}
+
+/* Status Badges */
+.my-status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.my-status-pending {
+  background-color: #fefcbf;
+  color: #975a16;
+}
+
+.my-status-under-review {
+  background-color: #fefcbf;
+  color: #975a16;
+}
+
+.my-status-interview-scheduled {
+  background-color: #c6f6d5;
+  color: #276749;
+}
+
+.my-status-rejected {
+  background-color: #fed7d7;
+  color: #9b2c2c;
+}
+
+.my-status-offered {
+  background-color: #bee3f8;
+  color: #2c5282;
+}
+
+.my-status-hired {
+  background-color: #c6f6d5;
+  color: #276749;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #718096;
+}
+
+.empty-state svg {
+  margin-bottom: 1rem;
+  color: #a0aec0;
+}
+
+.no-applications {
+  text-align: center;
+}
+
+/* Support Section */
+.support-note {
+  color: #4a5568;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.support-note strong {
+  color: #3182ce;
+}
+
+.toggle-format-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #3182ce;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-format-btn:hover {
+  background: #2c5282;
+}
+
+/* Email Template */
+.email-template-card {
+  margin-top: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.template-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f7fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.template-header h4 {
+  margin: 0;
+  color: #2d3748;
+  font-size: 1rem;
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #edf2f7;
+  color: #4a5568;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  background: #e2e8f0;
+}
+
+.template-content {
+  padding: 16px;
+  background: white;
+}
+
+.template-content p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.template-content strong {
+  color: #4a5568;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #4a5568;
+}
+
+
+/* Add to your MyApplication.css */
+.withdraw-btn {
+    padding: 5px 10px;
+    background-color: #ff44ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.withdraw-btn:hover {
+    background-color: #fa17fa;
+}
+
+.withdraw-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(49, 130, 206, 0.2);
+  border-top-color: #3182ce;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #e53e3e;
+}
+
+.error-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff5f5;
+  color: #e53e3e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.retry-btn {
+  margin-top: 1rem;
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.retry-btn:hover {
+  background: #c53030;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .my-application-container {
+    padding: 0 0.75rem;
+  }
+
+  .user-info-card,
+  .table-card,
+  .support-card {
+    padding: 1rem;
+  }
+
+  .applications-table {
+    font-size: 0.875rem;
+  }
+
+  .applications-table th,
+  .applications-table td {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .detail-label {
+    min-width: auto;
+  }
+
+  /* Make table scrollable horizontally on mobile */
+  .table-card {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .applications-table th,
+  .applications-table td {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+  
+  .my-status-badge {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+}

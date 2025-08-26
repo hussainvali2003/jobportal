@@ -1,0 +1,184 @@
+.employment-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.employment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.employment-header h3 {
+  font-size: 24px;
+  color: #333;
+}
+.add-btn {
+  background-color: #F4B1B1;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.add-btn:hover {
+  background-color: #F0A7B0;
+}
+.employment-form-container {
+  margin-bottom: 30px;
+  background: #F8F9FA;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #E0E0E0;
+}
+.employment-form h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+.form-row .form-group {
+  flex: 1;
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.cancel-btn {
+  background: #F8F9FA;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.save-btn {
+  background: #2196F3;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.save-btn:hover {
+  background: #0B7DDA;
+}
+.employment-cards {
+  display: grid;
+grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+.employment-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+  padding: 20px;
+width: 100%;
+}
+.employment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.card-header {
+  padding: 15px;
+  background: #F8F9FA;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-header h4 {
+  margin: 0;
+  font-size: 18px;
+}
+.employment-type {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.employment-type.full-time {
+  background-color: #D4EDDA;
+  color: #155724;
+}
+.employment-type.part-time {
+  background-color: #FFF3CD;
+  color: #856404;
+}
+.employment-type.internship {
+  background-color: #CCE5FF;
+  color: #004085;
+}
+.card-body {
+  padding: 15px;
+}
+.card-field {
+  margin-bottom: 10px;
+}
+.card-field strong {
+  font-weight: 500;
+}
+.card-actions {
+  padding: 15px;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 10px;
+}
+.edit-btn {
+  background: #2196F3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-btn {
+  background: #F44336;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.no-employments {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  background: #F8F9FA;
+  border-radius: 8px;
+}
+@media (max-width: 900px) {
+  .employment-cards {
+    grid-template-columns: 1fr;
+  }
+}

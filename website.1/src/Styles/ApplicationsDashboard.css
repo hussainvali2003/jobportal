@@ -1,0 +1,726 @@
+/* ATS Dashboard Styles */
+* {
+  box-sizing: border-box;
+}
+
+.ats-dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  
+}
+
+/* Dashboard Header */
+.ats-dashboard-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 70px;
+}
+
+.ats-dashboard-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.ats-stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.ats-stat-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ats-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.ats-stat-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 800;
+  color: #667eea;
+  line-height: 1;
+}
+
+.ats-stat-label {
+  display: block;
+  font-size: 14px;
+  color: #718096;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* Notifications Panel */
+.ats-notifications-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ats-notifications-header {
+  background: #f7fafc;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #4a5568;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ats-notification-item {
+  padding: 12px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ats-notification-item:last-child {
+  border-bottom: none;
+}
+
+.ats-notification-message {
+  color: #2d3748;
+  font-size: 14px;
+}
+
+.ats-notification-time {
+  color: #718096;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Filters Container */
+.ats-filters-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ats-search-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.ats-search-container svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a0aec0;
+  z-index: 2;
+}
+
+.ats-search-input {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.ats-search-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.ats-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.ats-filter-select,
+.ats-score-input {
+  padding: 10px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  min-width: 150px;
+  transition: all 0.2s ease;
+}
+
+.ats-filter-select:focus,
+.ats-score-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.ats-sort-button,
+.ats-bulk-shortlist-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ats-sort-button {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.ats-sort-button:hover {
+  background: #cbd5e0;
+}
+
+.ats-bulk-shortlist-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.ats-bulk-shortlist-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+/* Table Container */
+.ats-table-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-x: auto;
+}
+
+.ats-applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 1200px;
+}
+
+.ats-applications-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.ats-applications-table th {
+  padding: 16px 12px;
+  font-weight: 600;
+  text-align: left;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ats-applications-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: top;
+}
+
+.ats-table-row {
+  transition: background-color 0.2s ease;
+}
+
+.ats-table-row:hover {
+  background-color: #f8fafc;
+}
+
+/* Candidate Info */
+.ats-candidate-info {
+  min-width: 200px;
+}
+
+.ats-candidate-name {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 4px;
+}
+
+.ats-candidate-email {
+  color: #667eea;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.ats-candidate-phone {
+  color: #718096;
+  font-size: 13px;
+}
+
+/* Job Details */
+.ats-job-details {
+  min-width: 180px;
+}
+
+.ats-job-title {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 4px;
+}
+
+.ats-company-name {
+  color: #4a5568;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.ats-job-id {
+  color: #718096;
+  font-size: 12px;
+  font-family: monospace;
+  background: #f7fafc;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Recruiter Info */
+.ats-recruiter-info {
+  min-width: 150px;
+}
+
+.ats-recruiter-name {
+  font-weight: 500;
+  color: #2d3748;
+  margin-bottom: 2px;
+}
+
+.ats-recruiter-id {
+  color: #718096;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+/* Score and Experience */
+.ats-score-experience {
+  min-width: 120px;
+}
+
+.ats-score-badge,
+.ats-experience-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 2px 4px 2px 0;
+}
+
+.ats-score-excellent {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.ats-score-good {
+  background: #bee3f8;
+  color: #1e4a66;
+}
+
+.ats-score-fair {
+  background: #fef5e7;
+  color: #975a16;
+}
+
+.ats-score-average {
+  background: #fed7d7;
+  color: #9b2c2c;
+}
+
+.ats-score-poor {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+.ats-experience-badge {
+  background: #edf2f7;
+  color: #4a5568;
+}
+
+/* Status Cell */
+.ats-status-cell {
+  min-width: 200px;
+}
+
+.ats-status-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+
+.ats-status-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.ats-status-pending {
+  background: #fef5e7;
+  border-color: #f6ad55;
+}
+
+.ats-status-shortlisted {
+  background: #c6f6d5;
+  border-color: #68d391;
+}
+
+.ats-status-rejected {
+  background: #fed7d7;
+  border-color: #fc8181;
+}
+
+.ats-status-interview {
+  background: #bee3f8;
+  border-color: #63b3ed;
+}
+
+.ats-status-hired {
+  background: #c6f6d5;
+  border-color: #48bb78;
+}
+
+.ats-rejection-reason-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 12px;
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Action Buttons */
+.ats-action-btn {
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 2px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ats-view-btn {
+  background: #e6fffa;
+  color: #234e52;
+}
+
+.ats-view-btn:hover {
+  background: #b2f5ea;
+}
+
+.ats-download-btn {
+  background: #ebf8ff;
+  color: #2a69ac;
+}
+
+.ats-download-btn:hover {
+  background: #bee3f8;
+}
+
+.ats-email-btn {
+  background: #fef5e7;
+  color: #975a16;
+}
+
+.ats-email-btn:hover {
+  background: #faecc2;
+}
+
+/* Resume Actions */
+.ats-resume-actions {
+  min-width: 100px;
+}
+
+.ats-action-cell {
+  min-width: 80px;
+}
+
+/* Loading State */
+.ats-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: white;
+}
+
+.ats-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.ats-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
+}
+
+.ats-empty-state svg {
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.ats-empty-state h3 {
+  font-size: 24px;
+  margin: 16px 0 8px 0;
+  font-weight: 600;
+}
+
+.ats-empty-state p {
+  font-size: 16px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .ats-dashboard-container {
+    padding: 16px;
+  }
+
+  .ats-dashboard-header {
+    padding: 20px;
+  }
+
+  .ats-dashboard-title {
+    font-size: 24px;
+  }
+
+  .ats-stats-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .ats-stat-card {
+    padding: 16px;
+  }
+
+  .ats-stat-number {
+    font-size: 24px;
+  }
+
+  .ats-filters-container {
+    padding: 16px;
+  }
+
+  .ats-filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ats-filter-select,
+  .ats-score-input,
+  .ats-sort-button,
+  .ats-bulk-shortlist-btn {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .ats-table-container {
+    margin: 0 -16px;
+    border-radius: 0;
+  }
+
+  .ats-applications-table {
+    font-size: 13px;
+  }
+
+  .ats-applications-table th,
+  .ats-applications-table td {
+    padding: 12px 8px;
+  }
+
+  .ats-candidate-info,
+  .ats-job-details,
+  .ats-recruiter-info,
+  .ats-score-experience,
+  .ats-status-cell,
+  .ats-resume-actions,
+  .ats-action-cell {
+    min-width: unset;
+  }
+
+  .ats-notifications-panel {
+    margin: 0 -16px 24px -16px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .ats-dashboard-title {
+    font-size: 20px;
+  }
+
+  .ats-stat-number {
+    font-size: 20px;
+  }
+
+  .ats-stat-label {
+    font-size: 12px;
+  }
+
+  .ats-applications-table {
+    font-size: 12px;
+  }
+
+  .ats-applications-table th,
+  .ats-applications-table td {
+    padding: 8px 4px;
+  }
+
+  .ats-action-btn {
+    padding: 6px;
+  }
+
+  .ats-score-badge,
+  .ats-experience-badge {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+}
+
+/* Tablet Responsiveness */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ats-stats-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ats-filter-group {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .ats-applications-table {
+    min-width: 1000px;
+  }
+}
+
+/* Large Screen Optimizations */
+@media (min-width: 1200px) {
+  .ats-dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .ats-dashboard-header {
+    padding: 32px 40px;
+  }
+
+  .ats-stats-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .ats-filters-container {
+    padding: 32px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .ats-dashboard-container {
+    background: white;
+    padding: 0;
+  }
+
+  .ats-dashboard-header,
+  .ats-table-container {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+  }
+
+  .ats-filters-container,
+  .ats-notifications-panel,
+  .ats-action-btn {
+    display: none;
+  }
+
+  .ats-applications-table {
+    font-size: 12px;
+  }
+}
+
+/* Accessibility Improvements */
+.ats-action-btn:focus,
+.ats-search-input:focus,
+.ats-filter-select:focus,
+.ats-score-input:focus,
+.ats-status-select:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for better UX */
+.ats-table-row,
+.ats-stat-card,
+.ats-action-btn,
+.ats-bulk-shortlist-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar for webkit browsers */
+.ats-table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.ats-table-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.ats-table-container::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.ats-table-container::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}

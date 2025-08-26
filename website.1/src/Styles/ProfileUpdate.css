@@ -1,0 +1,640 @@
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: transparent;
+}
+/* Neumorphism Card Design */
+.profile-card {
+  width: 100%;
+  max-width: 500px;
+  background: #E0E5EC;
+  border-radius: 30px;
+  box-shadow:
+    20px 20px 60px #BEBEBE,
+    -20px -20px 60px #FFFFFF;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.profile-card:hover {
+  box-shadow:
+    25px 25px 75px #BEBEBE,
+    -25px -25px 75px #FFFFFF;
+  transform: translateY(-5px);
+}
+/* Content with Morphing Background */
+.profile-content {
+  padding: 40px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.profile-content.editing-mode {
+  background: linear-gradient(135deg, #7287ED 0%, #E0D8E7 100%);
+  color: white;
+}
+.profile-content.editing-mode::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+/* Profile Header Layout */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+/* Levitating Profile Picture */
+.profile-pic-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.profile-pic {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #E0E5EC;
+  box-shadow:
+    inset 8px 8px 16px #BEBEBE,
+    inset -8px -8px 16px #FFFFFF;
+  padding: 8px;
+  /* transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); */
+  /* animation: levitate 4s ease-in-out infinite; */
+}
+@keyframes levitate {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.profile-pic:hover {
+  box-shadow:
+    inset 12px 12px 24px #BEBEBE,
+    inset -12px -12px 24px #FFFFFF;
+  transform: scale(1.05) translateY(-5px);
+}
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+.default-icon {
+  width: 100%;
+  height: 100%;
+  color: #9CA3AF;
+  border-radius: 50%;
+  padding: 20px;
+}
+/* Floating Upload Button */
+.upload-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: #E0E5EC;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    8px 8px 16px #BEBEBE,
+    -8px -8px 16px #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(5deg); }
+}
+.upload-btn:hover {
+  box-shadow:
+    4px 4px 8px #BEBEBE,
+    -4px -4px 8px #FFFFFF;
+  transform: scale(1.1);
+}
+.upload-btn:active {
+  box-shadow:
+    inset 4px 4px 8px #BEBEBE,
+    inset -4px -4px 8px #FFFFFF;
+}
+/* Profile Information */
+.profile-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+/* Name Section with Liquid Animation */
+.name-section {
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+.profile-name {
+  font-size: 2.5em;
+  font-weight: 800;
+  color: #2D3748;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  position: relative;
+  background: linear-gradient(45deg, #667EEA, #764BA2, #F093FB, #F5576C
+);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: liquidText 4s ease-in-out infinite;
+}
+@keyframes liquidText {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.name-input {
+  font-size: 2.5em;
+  font-weight: 800;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 15px;
+  padding: 15px 25px;
+  text-align: center;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.name-input:focus {
+  outline: none;
+  box-shadow:
+    inset 6px 6px 12px rgba(0, 0, 0, 0.15),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+}
+/* Info Grid with Morphing Cards */
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.info-item {
+  background: #E0E5EC;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow:
+    8px 8px 16px #BEBEBE,
+    -8px -8px 16px #FFFFFF;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.info-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+.info-item:hover::before {
+  left: 100%;
+}
+.info-item:hover {
+  box-shadow:
+    12px 12px 24px #BEBEBE,
+    -12px -12px 24px #FFFFFF;
+  transform: translateY(-3px);
+}
+.profile-content.editing-mode .info-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+}
+.info-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95em;
+  font-weight: 700;
+  color: #4A5568;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.profile-content.editing-mode .info-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+.info-label svg {
+  color: #667EEA;
+  filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+}
+.profile-content.editing-mode .info-label svg {
+  color: rgba(255, 255, 255, 0.8);
+}
+.info-value {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #2D3748;
+  line-height: 1.4;
+}
+.profile-content.editing-mode .info-value {
+  color: white;
+}
+.info-input {
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 12px;
+  padding: 15px 20px;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.info-input:focus {
+  outline: none;
+  box-shadow:
+    inset 6px 6px 12px rgba(0, 0, 0, 0.15),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+}
+/* Contact Field with Verification */
+.contact-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.verified-icon {
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.6));
+  animation: verifiedPulse 2s infinite;
+}
+@keyframes verifiedPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+.verify-btn {
+  background: #E0E5EC;
+  color: #667EEA;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 0.9em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    4px 4px 8px #BEBEBE,
+    -4px -4px 8px #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.verify-btn:hover:not(:disabled) {
+  box-shadow:
+    2px 2px 4px #BEBEBE,
+    -2px -2px 4px #FFFFFF;
+  transform: translateY(-2px);
+}
+.verify-btn:active {
+  box-shadow:
+    inset 2px 2px 4px #BEBEBE,
+    inset -2px -2px 4px #FFFFFF;
+}
+.verify-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.profile-content.editing-mode .verify-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow:
+    inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+}
+/* OTP Field Styling */
+.otp-field-group {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid rgba(190, 190, 190, 0.3);
+}
+.otp-field {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.otp-input {
+  flex: 1;
+  padding: 15px 20px;
+  background: #E0E5EC;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+  box-shadow:
+    inset 4px 4px 8px #BEBEBE,
+    inset -4px -4px 8px #FFFFFF;
+  transition: all 0.3s ease;
+}
+.otp-input:focus {
+  outline: none;
+  box-shadow:
+    inset 6px 6px 12px #BEBEBE,
+    inset -6px -6px 12px #FFFFFF;
+}
+.profile-content.editing-mode .otp-input {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  box-shadow:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+}
+.otp-btn {
+  background: #667EEA;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 25px;
+  font-size: 0.9em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    4px 4px 8px rgba(102, 126, 234, 0.3),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.otp-btn:hover:not(:disabled) {
+  box-shadow:
+    2px 2px 4px rgba(102, 126, 234, 0.4),
+    -2px -2px 4px rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+.otp-btn:active {
+  box-shadow:
+    inset 2px 2px 4px rgba(102, 126, 234, 0.3),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+}
+.otp-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* OTP Actions */
+.otp-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cooldown {
+  font-size: 0.9em;
+  color: #718096;
+  font-weight: 600;
+}
+.profile-content.editing-mode .cooldown {
+  color: rgba(255, 255, 255, 0.8);
+}
+.resend-btn {
+  background: none;
+  border: none;
+  color: #667EEA;
+  font-size: 0.9em;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.resend-btn:hover:not(:disabled) {
+  background: rgba(102, 126, 234, 0.1);
+  color: #5A67D8;
+}
+.resend-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.profile-content.editing-mode .resend-btn {
+  color: rgba(255, 255, 255, 0.9);
+}
+.profile-content.editing-mode .resend-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+/* Profile Actions with Morphing Button */
+.profile-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-width: 180px;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.edit-btn {
+  background: #E0E5EC;
+  color: #667EEA;
+  box-shadow:
+    8px 8px 16px #BEBEBE,
+    -8px -8px 16px #FFFFFF;
+}
+.edit-btn:hover:not(:disabled) {
+  box-shadow:
+    4px 4px 8px #BEBEBE,
+    -4px -4px 8px #FFFFFF;
+  transform: translateY(-3px);
+}
+.edit-btn:active {
+  box-shadow:
+    inset 4px 4px 8px #BEBEBE,
+    inset -4px -4px 8px #FFFFFF;
+}
+.save-btn {
+  background: linear-gradient(135deg, #667EEA, #764BA2);
+  color: white;
+  box-shadow:
+    8px 8px 16px rgba(102, 126, 234, 0.3),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+.save-btn:hover:not(:disabled) {
+  box-shadow:
+    4px 4px 8px rgba(102, 126, 234, 0.4),
+    -4px -4px 8px rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+}
+.save-btn:active {
+  box-shadow:
+    inset 4px 4px 8px rgba(102, 126, 234, 0.3),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+}
+.action-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+.action-btn svg {
+  transition: transform 0.3s ease;
+}
+.action-btn:hover:not(:disabled) svg {
+  transform: scale(1.2) rotate(5deg);
+}
+/* Loading Animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 15px;
+  }
+  .profile-content {
+    padding: 30px;
+  }
+  .profile-header {
+    gap: 30px;
+  }
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+  }
+  .profile-name {
+    font-size: 2.2em;
+  }
+  .name-input {
+    font-size: 2.2em;
+    padding: 12px 20px;
+  }
+  .info-item {
+    padding: 20px;
+  }
+  .action-btn {
+    padding: 16px 35px;
+    font-size: 1.1em;
+  }
+  .upload-btn {
+    width: 45px;
+    height: 45px;
+  }
+}
+@media (max-width: 480px) {
+  .profile-content {
+    padding: 25px;
+  }
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+  .profile-name {
+    font-size: 2em;
+  }
+  .name-input {
+    font-size: 2em;
+    padding: 10px 18px;
+  }
+  .info-item {
+    padding: 18px;
+  }
+  .action-btn {
+    padding: 14px 30px;
+    font-size: 1em;
+    min-width: 160px;
+  }
+  .otp-field {
+    flex-direction: column;
+  }
+  .otp-btn {
+    width: 100%;
+  }
+  .contact-field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .verify-btn {
+    align-self: flex-end;
+  }
+}
+/* Focus states for accessibility */
+.action-btn:focus,
+.verify-btn:focus,
+.otp-btn:focus,
+.resend-btn:focus {
+  outline: 3px solid rgba(102, 126, 234, 0.5);
+  outline-offset: 2px;
+}
+.action-btn:focus:not(:focus-visible),
+.verify-btn:focus:not(:focus-visible),
+.otp-btn:focus:not(:focus-visible),
+.resend-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+/* Additional Morphing Effects */
+.profile-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.profile-card:hover::after {
+  opacity: 1;
+  animation: morphScan 2s ease-in-out;
+}
+@keyframes morphScan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

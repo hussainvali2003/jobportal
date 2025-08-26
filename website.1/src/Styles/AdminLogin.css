@@ -1,0 +1,201 @@
+/* AdminLogin.css */
+
+.mm-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f6f8fb;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 70px;
+}
+
+.mm-login-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 380px;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.mm-brand-section {
+  margin-bottom: 30px;
+}
+
+.mm-main-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.mm-company-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0d253f;
+  margin: 0;
+}
+
+.mm-login-title {
+  font-size: 22px;
+  color: #0d253f;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.mm-login-subtitle {
+  font-size: 14px;
+  color: #8898aa;
+  margin-bottom: 24px;
+}
+
+.mm-role-indicator {
+  margin-bottom: 20px;
+}
+
+.mm-admin-indicator {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f0f5ff;
+  color: #335eea;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  user-select: none;
+}
+
+.mm-admin-indicator .mm-tab-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+/* Error Message */
+.mm-error-message {
+  background-color: #ffe6e6;
+  color: #cc0000;
+  font-size: 13px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-align: left;
+}
+
+/* Form Styles */
+.mm-login-form {
+  text-align: left;
+}
+
+.mm-form-group {
+  margin-bottom: 20px;
+}
+
+.mm-form-group label {
+  display: block;
+  font-size: 14px;
+  color: #344050;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.mm-input-wrapper {
+  position: relative;
+}
+
+.mm-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #adb5bd;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.mm-login-form input[type="email"],
+.mm-login-form input[type="password"],
+.mm-login-form input[type="text"] {
+  width: 100%;
+  padding: 10px 12px 10px 42px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #344050;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.mm-login-form input[type="email"]:focus,
+.mm-login-form input[type="password"]:focus,
+.mm-login-form input[type="text"]:focus {
+  outline: none;
+  border-color: #3366ff;
+  box-shadow: 0 0 4px rgba(51, 102, 255, 0.5);
+}
+
+/* Password Toggle Button */
+.mm-password-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 4px 6px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mm-password-toggle:hover {
+  color: #3366ff;
+}
+
+/* Submit Button */
+.mm-login-btn {
+  width: 100%;
+  background-color: #3366ff;
+  color: #ffffff;
+  border: none;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.mm-login-btn:disabled {
+  background-color: #a0acba;
+  cursor: not-allowed;
+}
+
+.mm-login-btn:hover:not(:disabled) {
+  background-color: #254eda;
+}
+
+/* Footer Links */
+.mm-footer-links {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.mm-footer-link {
+  color: #3366ff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.mm-footer-link:hover {
+  color: #254eda;
+}

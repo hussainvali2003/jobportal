@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+* {
+  font-family: 'Poppins', sans-serif;
+}
+body {
+    font-family: "Times New Roman", Times, serif;
+      /* padding-top: 130px;  */
+      /* Push all content below navbar */
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+  }
+   .background-wrapper {
+    margin: 0;
+    padding-top: 140px; /* :white_check_mark: Only this much is enough to leave space for navbar */
+    padding-bottom: 80px;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.555), rgba(0, 0, 0, 0.4)),
+      url('/public/main2.jpeg'); /* :white_check_mark: Use only /main.jpg if it's in public folder */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+  }
+  .below-wrapper {
+    background: #F8F9FF; /* Optional: give a different bg or keep default */
+    margin: 0;
+    padding: 0;
+  }
+/* Ensure toasts appear above everything and are not constrained */
+/* Fix toast positioning */
+.Toastify__toast-container {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  width: 320px;
+  z-index: 9999;
+}
+.Toastify__toast {
+  margin-bottom: 0.5em;
+  border-radius: 4px;
+}
+/* Make sure no parent is hiding toasts */
+body {
+  overflow: visible !important;
+}

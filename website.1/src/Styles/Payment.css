@@ -1,0 +1,525 @@
+Payment.css
+
+.payment-container {
+  max-width: 1200px;
+  margin: 70px auto 0;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  color: #333;
+  padding-bottom: 50px;
+}
+
+/* Header Styles */
+.payment-header {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+  
+}
+
+.payment-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2c3e50;
+}
+
+.title-icon {
+  margin-right: 12px;
+  color: #4a6bff;
+  width: 24px;
+  height: 24px;
+}
+
+.payment-subtitle {
+  font-size: 16px;
+  color: #6c757d;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Security Banner */
+.security-banner {
+  display: flex;
+  align-items: center;
+  background-color: #f0f7ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border-left: 4px solid #4a6bff;
+}
+
+.security-icon {
+  margin-right: 20px;
+  color: #4a6bff;
+  min-width: 32px;
+  height: 32px;
+}
+
+.security-text h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.security-text p {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Payment Content Layout */
+.payment-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+/* Services Section */
+.services-section {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.section-header p {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.service-card {
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-card:hover {
+  border-color: #4a6bff;
+  box-shadow: 0 2px 8px rgba(74, 107, 255, 0.1);
+}
+
+.service-card.selected {
+  border-color: #4a6bff;
+  background-color: #f8faff;
+}
+
+.service-header {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.service-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #dee2e6;
+  border-radius: 4px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.service-card.selected .service-checkbox {
+  background-color: #4a6bff;
+  border-color: #4a6bff;
+}
+
+.check-icon {
+  color: white;
+  width: 14px;
+  height: 14px;
+}
+
+.service-info h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.service-info p {
+  font-size: 13px;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.service-price {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+  text-align: right;
+}
+
+.help-text {
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: 15px;
+}
+
+.help-text a {
+  color: #4a6bff;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.help-text a:hover {
+  text-decoration: underline;
+}
+
+/* Payment Method Section */
+.payment-method-section {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.payment-method {
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.payment-method:hover {
+  border-color: #4a6bff;
+}
+
+.payment-method.selected {
+  border-color: #4a6bff;
+  background-color: #f8faff;
+}
+
+.method-icon {
+  margin-right: 15px;
+  color: #6c757d;
+  width: 24px;
+  height: 24px;
+}
+
+.payment-method.selected .method-icon {
+  color: #4a6bff;
+}
+
+.method-info h4 {
+  font-size: 15px;
+  margin-bottom: 3px;
+  color: #2c3e50;
+}
+
+.method-info p {
+  font-size: 12px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.method-radio {
+  margin-left: auto;
+}
+
+.selected-icon {
+  color: #4a6bff;
+  width: 18px;
+  height: 18px;
+}
+
+.security-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.badge {
+  font-size: 12px;
+  color: #6c757d;
+  background-color: #f8f9fa;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* Billing Section */
+.billing-section {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.billing-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #495057;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4a6bff;
+  box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.1);
+}
+
+/* Order Summary */
+.order-summary {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.order-summary h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.summary-items {
+  margin-bottom: 15px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f3f5;
+  font-size: 14px;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+  border-top: 1px solid #e9ecef;
+  margin-top: 10px;
+}
+
+/* Payment Button */
+.pay-button {
+  width: 100%;
+  padding: 16px;
+  background-color: #4a6bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.pay-button:hover {
+  background-color: #3a5bef;
+}
+
+.pay-button:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.pay-button.processing {
+  background-color: #4a6bff;
+  opacity: 0.8;
+}
+
+.pay-icon, .processing-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.processing-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.terms-text {
+  font-size: 12px;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.terms-text a {
+  color: #4a6bff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.terms-text a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Sections */
+.footer-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.refund-section, .support-section {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.refund-section h3, .support-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.refund-section p, .support-section p {
+  font-size: 14px;
+  color: #6c757d;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.refund-section a {
+  color: #4a6bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.refund-section a:hover {
+  text-decoration: underline;
+}
+
+.support-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.contact-icon {
+  color: #4a6bff;
+  width: 18px;
+  height: 18px;
+}
+
+
+/* Add to Payment.css */
+.section-icon {
+  margin-right: 10px;
+  vertical-align: middle;
+  color: #4a6bff;
+}
+
+/* Adjust help text icon */
+.help-text .help-icon {
+  margin-right: 5px;
+}
+
+/* Order summary icon alignment */
+.order-summary h3 {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .payment-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-sections {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-methods {
+    grid-template-columns: 1fr;
+  }
+}

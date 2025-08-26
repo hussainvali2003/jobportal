@@ -1,0 +1,237 @@
+.sidebar-wrapper {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  height: fit-content;
+  margin-top: 60px;
+}
+.sidebar-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(231, 31, 31, 0.05);
+}
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #010711;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.sidebar-header p {
+  font-size: 0.875rem;
+  color: #718096;
+  margin: 0;
+  text-align: center;
+}
+/* Grid Layout */
+.sidebar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+/* Card Styles */
+.grid-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.2);
+  transition: box-shadow 0.4s ease;
+  pointer-events: none;
+}
+.grid-card:hover::before {
+  box-shadow: 0 0 8px 2px rgba(59, 130, 246, 0.3);
+}
+.grid-card {
+  position: relative;
+  background: #FFFEFE;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+   min-height: 160px;
+}
+/* Glow Effect on Hover with Subtle Zoom */
+.grid-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+}
+/* Active card */
+.grid-card.active {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+/* Card Background Colors */
+.grid-card.resume .card-background {
+  background: linear-gradient(135deg, #F6D365 0%, #EB643E 100%);
+}
+.grid-card.education .card-background {
+  background: linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 100%);
+}
+.grid-card.skills .card-background {
+  background: linear-gradient(135deg, #84FAB0 0%, #8FD3F4 100%);
+}
+.grid-card.accomplishment .card-background {
+  background: linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%);
+}
+.grid-card.it-skills1 .card-background {
+  background: linear-gradient(135deg, #A18CD1 0%, #FBC2EB 100%);
+}
+.grid-card.projects .card-background {
+  background: linear-gradient(135deg, #FBC2EB 0%, #A6C1EE 100%);
+}
+.grid-card.career .card-background {
+  background: linear-gradient(135deg, #FFC3A0 0%, #FFAFBD 100%);
+}
+.grid-card.personal .card-background {
+  background: linear-gradient(135deg, #D4FC79 0%, #96E6A1 100%);
+}
+.grid-card.all-details .card-background {
+  background: linear-gradient(135deg, #EE738E 0%, #A373EA 100%);
+}
+.card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+/* Card Content Gradient Backgrounds */
+.grid-card.resume .card-content {
+  background: linear-gradient(135deg, #F6D365 0%, #EB643E 100%);
+}
+.grid-card.education .card-content {
+  background: linear-gradient(135deg, #9CC1FD 0%, #C2E9FB 100%);
+}
+.grid-card.skills .card-content {
+  background: linear-gradient(135deg, #84FAB0 0%, #8FD3F4 100%);
+}
+.grid-card.accomplishment .card-content {
+  background: linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%);
+}
+.grid-card.it-skills1 .card-content {
+  background: linear-gradient(135deg, #A18CD1 0%, #FBC2EB 100%);
+}
+.grid-card.projects .card-content {
+  background: linear-gradient(135deg, #FBC2EB 0%, #A6C1EE 100%);
+}
+.grid-card.career .card-content {
+  background: linear-gradient(135deg, #FFC3A0 0%, #FFAFBD 100%);
+}
+.grid-card.personal .card-content {
+  background: linear-gradient(135deg, #D4FC79 0%, #96E6A1 100%);
+}
+.card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+}
+/* Icon Wrapper */
+.card-iconud-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.icon-background {
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  background: rgb(240, 232, 232);
+}
+/* Icon Background Colors */
+.grid-card.resume .icon-background {
+  background: rgba(246, 211, 101, 0.2);
+}
+.grid-card.education .icon-background {
+  background: rgba(161, 196, 253, 0.2);
+}
+.grid-card.skills .icon-background {
+  background: rgba(132, 250, 176, 0.2);
+}
+.grid-card.accomplishment .icon-background {
+  background: rgba(255, 154, 158, 0.2);
+}
+.grid-card.it-skills .icon-background {
+  background: rgba(161, 140, 209, 0.2);
+}
+.grid-card.projects .icon-background {
+  background: rgba(251, 194, 235, 0.2);
+}
+.grid-card.career .icon-background {
+  background: rgba(255, 195, 160, 0.2);
+}
+.grid-card.personal .icon-background {
+  background: rgba(212, 252, 121, 0.2);
+}
+/* Icon Colors */
+.card-iconud {
+  color: #2D3748;
+  width: 28px;
+  height: 28px;
+}
+.grid-card.resume .card-iconud {
+  color: #F6D365;
+}
+.grid-card.education .card-iconud {
+  color: #A1C4FD;
+}
+.grid-card.skills .card-iconud {
+  color: #84FAB0;
+}
+.grid-card.accomplishment .card-iconud {
+  color: #FF9A9E;
+}
+.grid-card.it-skills .card-iconud {
+  color: #A18CD1;
+}
+.grid-card.projects .card-iconud {
+  color: #FBC2EB;
+}
+.grid-card.career .card-iconud {
+  color: #FFC3A0;
+}
+.grid-card.personal .card-iconud {
+  color: #D4FC79;
+}
+/* Title */
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2D3748;
+  margin: 0 0 12px 0;
+}
+/* Status Indicator */
+.card-status {
+  margin-top: auto;
+}
+.status-indicator {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: white;
+}
+.status-indicator.active {
+  color: #3B82F6;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background: #FFFFFF;
+}
+.status-indicator.active .status-dot {
+  background: #3B82F6;
+}

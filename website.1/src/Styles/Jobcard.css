@@ -1,0 +1,428 @@
+
+
+
+#jbox {
+  /* max-width: 1400px; */
+  margin: 0 auto;
+  padding: 80px 20px;
+  background-color: #fff;
+  min-height: 70vh;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+#jbox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.section-titles {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #3e64cc;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-titles::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+  border-radius: 2px;
+}
+
+.job-section {
+  position: relative;
+  z-index: 1;
+}
+
+.job-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Centers content vertically */
+  align-items: center;  /* Centers content horizontally */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+
+.box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.box:hover::before {
+  transform: scaleX(1);
+}
+
+.box:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.box h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.box h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  min-height: 40px;  /* Ensure it always takes up a minimum space */
+  max-height: 100px;  /* Optional: Set a max-height if needed */
+  overflow: hidden;  /* Clip overflow content */
+}
+
+
+
+.read-more1 {
+  background-color: #3a4cec;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.read-more1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+  transform: scaleX(0);
+}
+
+.read-more1:hover::before {
+  left: 100%;
+}
+
+.read-more1:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.read-more1:active {
+  transform: translateY(0);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  max-width: 600px;
+  max-height: 80vh;
+  margin: 20px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow-y: auto;
+  animation: slideIn 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content h2 {
+  color: #2d3748;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.modal-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.modal-content h3 {
+  color: #4a5568;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  margin-top: 25px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.modal-content h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+}
+
+.modal-content p {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #a0aec0;
+  transition: color 0.3s ease;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-modal:hover {
+  color: #e53e3e;
+  background: rgba(229, 62, 62, 0.1);
+}
+
+/* Scrollbar Styling for Modal */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8, #6b42a1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #jbox {
+    padding: 60px 15px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .job-cards-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .box {
+    padding: 30px 25px;
+  }
+  
+  .box h3 {
+    font-size: 1.5rem;
+  }
+  
+  .job-description {
+    font-size: 1rem;
+  }
+  
+  .modal-content {
+    margin: 10px;
+    padding: 30px 25px;
+    max-height: 85vh;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .modal-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .modal-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .box {
+    padding: 25px 20px;
+  }
+  
+  .box h3 {
+    font-size: 1.3rem;
+  }
+  
+  .job-description {
+    font-size: 0.95rem;
+  }
+  
+  .read-more {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+  
+  .modal-content {
+    padding: 25px 20px;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.box:hover h3 {
+  animation: pulse 2s infinite;
+}
+
+/* Smooth Transitions */
+* {
+  box-sizing: border-box;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+/* Focus States for Accessibility */
+.read-more:focus,
+.close-modal:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  #jbox {
+    background: white;
+    color: black;
+  }
+  
+  .modal-overlay {
+    display: none;
+  }
+  
+  .box {
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+}
