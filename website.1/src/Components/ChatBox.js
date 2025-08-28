@@ -1113,16 +1113,18 @@ const ChatBox = ({ isOpen, onClose }) => {
       try {
        // console.log("🚀 Sending request to MM Advisor:", { message });
         
-        const response = await fetch("http://localhost:8080/api/groq/chat", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-          },
-          body: JSON.stringify({
-            message: message,
-          }),
-        });
+        const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+
+const response = await fetch(`${apiBaseUrl}/api/groq/chat`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+  },
+  body: JSON.stringify({
+    message: message,
+  }),
+});
         
        // console.log("📡 MM Advisor Response Status:", response.status);
         
