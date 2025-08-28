@@ -43,6 +43,8 @@ const ResetPassword = () => {
     });
   };
 
+     const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -60,7 +62,7 @@ const ResetPassword = () => {
     }
 
     try {
-      await axios.post("http://localhost:8080/api/auth/reset-password", null, {
+      await axios.post(`${API_BASE}/api/auth/reset-password`, null, {
         params: { email, otp, newPassword }
       });
       alert("Password reset successful! Please login.");

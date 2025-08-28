@@ -39,9 +39,12 @@ const [resumeUploaded, setResumeUploaded] = useState(false);
       fetchProfileSummary();
     }
   }, [userEmail]);
+
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const fetchProfileSummary = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/resumes/${userEmail}`);
+      const response = await axios.get(`${API_BASE}/api/resumes/${userEmail}`);
       const data = response.data;
       if (data && data.length > 0) {
         setHeadline(data[0].profilesummary || '');
@@ -88,7 +91,7 @@ const handleFileChange = async (event) => {
     formData.append("resumeFile", file);
     formData.append("userEmail", userEmail);
     try {
-      const response = await axios.post("http://localhost:8080/api/resumes/upload", formData, {
+      const response = await axios.post(`${API_BASE}/api/resumes/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       toast.success("Resume uploaded successfully!", {
@@ -119,7 +122,7 @@ const handleFileChange = async (event) => {
     return;
   }
   try {
-    const response = await axios.post('http://localhost:8080/api/resumes/summary', {
+    const response = await axios.post(`${API_BASE}/api/resumes/summary`, {
       userEmail,
       profilesummary: headlineInput,
     });

@@ -43,6 +43,8 @@ const RecruiterDashboard = () => {
         const userImage = localStorage.getItem("userImage");
         const recruiterId = localStorage.getItem("recruiterId");
 
+
+
         if (userRole === "ADMIN") {
           setUserInfo({
             role: userRole,
@@ -56,7 +58,7 @@ const RecruiterDashboard = () => {
         } else {
           try {
             const response = await fetch(
-              "http://localhost:8080/api/recruiters/me",
+              `${API_BASE}/api/recruiters/me`,
               {
                 credentials: "include",
               }
@@ -94,10 +96,12 @@ const RecruiterDashboard = () => {
     fetchData();
   }, [navigate]);
 
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const fetchDashboardStats = async () => {
     try {
       // Fetch active jobs count
-      const jobsResponse = await fetch("http://localhost:8080/api/jobs", {
+      const jobsResponse = await fetch(`${API_BASE}/api/jobs`, {
         credentials: "include",
       });
       
@@ -108,7 +112,7 @@ const RecruiterDashboard = () => {
       }
 
       // Fetch users count
-      const usersResponse = await fetch("http://localhost:8080/api/users/count", {
+      const usersResponse = await fetch(`${API_BASE}/api/users/count`, {
         credentials: "include",
       });
       
@@ -118,7 +122,7 @@ const RecruiterDashboard = () => {
       }
 
       // Fetch recruiters count
-      const recruitersResponse = await fetch("http://localhost:8080/api/recruiters/count", {
+      const recruitersResponse = await fetch(`${API_BASE}/api/recruiters/count`, {
         credentials: "include",
       });
       
@@ -165,7 +169,7 @@ const RecruiterDashboard = () => {
                   />
                 ) : (
                   <img
-                    src={`http://localhost:8080${userInfo.imageData}`}
+                    src={`${API_BASE}${userInfo.imageData}`}
                     alt="Profile"
                     className="recruiter-dashboard-profile-image"
                   />

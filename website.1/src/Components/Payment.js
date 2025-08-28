@@ -60,6 +60,9 @@ const Payment = () => {
     }, 0);
   };
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
   // Load Razorpay SDK script
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -81,7 +84,7 @@ const Payment = () => {
 
   // Create order on backend
   const createOrder = async (amount) => {
-    const response = await fetch("http://localhost:8080/api/payments/create-order", {
+    const response = await fetch(`${API_BASE}/api/payments/create-order`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount }),
@@ -95,7 +98,7 @@ const Payment = () => {
 
   // Verify payment on backend
   const verifyPayment = async (details) => {
-    const response = await fetch("http://localhost:8080/api/payments/verify", {
+    const response = await fetch(`${API_BASE}/api/payments/verify`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(details),

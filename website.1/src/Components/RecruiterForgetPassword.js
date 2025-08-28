@@ -19,10 +19,12 @@ const RecruiterForgetPassword = () => {
     }, 5000);
   };
 
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/api/auth/recruiter-forgot-password", null, { params: { email } });
+      await axios.post(`${API_BASE}/api/auth/recruiter-forgot-password`, null, { params: { email } });
       showNotification("OTP sent to your registered email address", "success");
       setTimeout(() => {
         navigate(`/recruiter-reset-password?email=${encodeURIComponent(email)}`);

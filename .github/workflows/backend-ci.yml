@@ -1,4 +1,4 @@
-name: Backend CI/CD
+name: CI/CD Pipeline
 
 on:
   push:
@@ -20,6 +20,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      # Backend image
       - name: Build and Push Backend Image
         uses: docker/build-push-action@v5
         with:
@@ -27,6 +28,15 @@ jobs:
           file: ./jobportalwebsite/Dockerfile
           push: true
           tags: hussainvali1234/jobportal-backend:latest
+
+      # Frontend image
+      - name: Build and Push Frontend Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./website.1
+          file: ./website.1/Dockerfile
+          push: true
+          tags: hussainvali1234/jobportal-frontend:latest
 
   deploy:
     needs: build-and-push
@@ -42,15 +52,9 @@ jobs:
           script: |
             set -e
 
-            # Install Docker if missing (Amazon Linux / Ubuntu)
+            # Install Docker if missing
             if ! command -v docker >/dev/null 2>&1; then
-              if command -v dnf >/dev/null 2>&1; then
-                sudo dnf -y update
-                sudo dnf -y install docker
-                sudo systemctl enable --now docker
-              elif command -v yum >/dev/null 2>&1; then
-                sudo yum -y update
-                sudo amazon-linux-extras install docker -y || true
+              if command -v yum >/dev/null 2>&1; then
                 sudo yum -y install docker
                 sudo systemctl enable --now docker
               elif command -v apt-get >/dev/null 2>&1; then
@@ -60,23 +64,31 @@ jobs:
               fi
             fi
 
-            # Write env file with DB creds
+            # Write backend env file
             cat > ~/jobportal-backend.env << EOF
             SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
             SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
             SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
             EOF
 
-            # Pull & (re)start container
+            # Run backend container
             sudo docker pull hussainvali1234/jobportal-backend:latest
             sudo docker stop jobportal-backend || true
             sudo docker rm jobportal-backend || true
-
             sudo docker run -d --name jobportal-backend \
               --restart unless-stopped \
               --env-file ~/jobportal-backend.env \
               -p 8080:8080 \
               hussainvali1234/jobportal-backend:latest
+
+            # Run frontend container
+            sudo docker pull hussainvali1234/jobportal-frontend:latest
+            sudo docker stop jobportal-frontend || true
+            sudo docker rm jobportal-frontend || true
+            sudo docker run -d --name jobportal-frontend \
+              --restart unless-stopped \
+              -p 80:80 \
+              hussainvali1234/jobportal-frontend:latest
 
             sudo docker image prune -f
         env:

@@ -23,12 +23,15 @@ const Projects = () => {
     checkFn: () => projects.length > 0,
     dependencies: [projects]
   });
+
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
     if (userEmail) fetchProjects();
   }, [userEmail]);
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/projects/${userEmail}`);
+      const response = await axios.get(`${API_BASE}/api/projects/${userEmail}`);
       setProjects(response.data);
     } catch (error) {
       console.error("Error fetching projects:", error);
@@ -87,7 +90,7 @@ const handleSave = async () => {
     console.log("Sending payload:", payload); // Debug the request data
     if (editingProjectId) {
       const response = await axios.put(
-        `http://localhost:8080/api/projects/${editingProjectId}`,
+        `${API_BASE}/api/projects/${editingProjectId}`,
         payload,
         config
       );
@@ -95,7 +98,7 @@ const handleSave = async () => {
       toast.success("Project updated successfully!");
     } else {
       const response = await axios.post(
-        `http://localhost:8080/api/projects/${userEmail}`,
+        `${API_BASE}/api/projects/${userEmail}`,
         payload,
         config
       );
@@ -133,7 +136,7 @@ const handleSave = async () => {
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/projects/${id}`);
+      await axios.delete(`${API_BASE}/api/projects/${id}`);
       fetchProjects();
       toast.success("Project deleted successfully!");
     } catch (error) {

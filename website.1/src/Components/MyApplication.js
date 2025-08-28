@@ -13,6 +13,9 @@ const MyApplication = () => {
   const [showEmailFormat, setShowEmailFormat] = useState(false);
   const [copied, setCopied] = useState(false);
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
   // Get logged-in user email from localStorage or session
   const getLoggedInUserEmail = () => {
     // Get email from the same storage key used in navbar
@@ -42,7 +45,7 @@ const MyApplication = () => {
       setLoading(true);
       try {
         // 1. Fetch user data
-        const userResponse = await fetch(`http://localhost:8080/api/applications/user-data/${loggedInEmail}`);
+        const userResponse = await fetch(`${API_BASE}/api/applications/user-data/${loggedInEmail}`);
         
         if (!userResponse.ok) {
           throw new Error(`Failed to fetch user data: ${userResponse.status}`);
@@ -59,7 +62,7 @@ const MyApplication = () => {
         }
 
         // 2. Fetch applications data
-        const appsResponse = await fetch(`http://localhost:8080/api/applications/user/${loggedInEmail}`);
+        const appsResponse = await fetch(`${API_BASE}/api/applications/user/${loggedInEmail}`);
         
         if (!appsResponse.ok) {
           throw new Error(`Failed to fetch applications: ${appsResponse.status}`);
@@ -93,7 +96,7 @@ const handleWithdraw = async (applicationId) => {
 
     try {
         console.log('Attempting to withdraw application...');
-        const response = await fetch(`http://localhost:8080/api/applications/withdraw/${applicationId}`, {
+        const response = await fetch(`${API_BASE}/api/applications/withdraw/${applicationId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -111,7 +114,7 @@ const handleWithdraw = async (applicationId) => {
         console.log('Withdrawal successful, refreshing applications...');
         // Refresh the applications list
         const loggedInEmail = getLoggedInUserEmail();
-        const appsResponse = await fetch(`http://localhost:8080/api/applications/user/${loggedInEmail}`);
+        const appsResponse = await fetch(`${API_BASE}/api/applications/user/${loggedInEmail}`);
         const applicationsData = await appsResponse.json();
         setApplications(applicationsData);
         

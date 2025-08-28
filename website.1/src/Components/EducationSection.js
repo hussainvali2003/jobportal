@@ -49,6 +49,9 @@ const Education = () => {
     "VIT Vellore", "SRM University", "Manipal University", "Amity University",
     "Periyar University", "Ashoka University"
   ];
+
+   const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   // Fetch education data from backend
   useEffect(() => {
     if (userEmail) {
@@ -57,7 +60,7 @@ const Education = () => {
   }, [userEmail]);
   const fetchEducation = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/education/user/${userEmail}`);
+      const response = await axios.get(`${API_BASE}/api/education/user/${userEmail}`);
       setEducationList(response.data);
     } catch (error) {
       console.error("Error fetching education:", error);
@@ -149,11 +152,11 @@ const Education = () => {
      try {
       if (editingId) {
         // Update existing entry
-        await axios.put(`http://localhost:8080/api/education/${editingId}?email=${userEmail}`, educationData);
+        await axios.put(`${API_BASE}/api/education/${editingId}?email=${userEmail}`, educationData);
         toast.success("Education updated successfully!");
       } else {
         // Add new entry
-        await axios.post(`http://localhost:8080/api/education?email=${userEmail}`, educationData);
+        await axios.post(`${API_BASE}/api/education?email=${userEmail}`, educationData);
         toast.success("Education added successfully!");
       }
       fetchEducation();
@@ -186,10 +189,13 @@ const Education = () => {
     else setActiveForm("phd");
     setEditingId(id);
   };
+  
+
+
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this education entry?")) {
       try {
-        await axios.delete(`http://localhost:8080/api/education/${id}?email=${userEmail}`);
+        await axios.delete(`${API_BASE}/api/education/${id}?email=${userEmail}`);
         toast.success("Education deleted successfully!");
         fetchEducation();
       } catch (error) {

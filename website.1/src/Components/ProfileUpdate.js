@@ -48,6 +48,9 @@ function Profile() {
   });
   const [emailResendCooldown, setEmailResendCooldown] = useState(0);
   const [phoneResendCooldown, setPhoneResendCooldown] = useState(0);
+
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   // Profile completion hook
   useUpdateCompletion({
     sectionName: 'profileDetails',
@@ -74,7 +77,7 @@ function Profile() {
         const storedEmail = localStorage.getItem("registeredEmail");
         if (storedEmail) {
           const response = await axios.get(
-            `http://localhost:8080/api/auth/user?email=${storedEmail}`
+            `${API_BASE}/api/auth/user?email=${storedEmail}`
           );
           const {
             name,
@@ -143,7 +146,7 @@ function Profile() {
     }
     try {
       setIsLoading(prev => ({ ...prev, save: true }));
-      await axios.put("http://localhost:8080/api/auth/update", formData, {
+      await axios.put(`${API_BASE}/api/auth/update`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       toast.success("Profile updated successfully!", { position: "top-right" });
@@ -165,7 +168,7 @@ function Profile() {
         ? { email: userData.email }
         : { phone: userData.phoneno };
       await axios.post(
-        `http://localhost:8080/api/auth/${endpoint}`,
+        `${API_BASE}/api/auth/${endpoint}`,
         null,
         { params }
       );
@@ -196,7 +199,7 @@ function Profile() {
     try {
       setIsLoading((prev) => ({ ...prev, email: true }));
       const response = await axios.post(
-        "http://localhost:8080/api/auth/verify-email-otp",
+        `${API_BASE}/api/auth/verify-email-otp`,
         null,
         {
           params: {
@@ -232,7 +235,7 @@ function Profile() {
     try {
       setIsLoading(prev => ({ ...prev, phone: true }));
       const response = await axios.post(
-        `http://localhost:8080/api/auth/verify-phone-otp`,
+        `${API_BASE}/api/auth/verify-phone-otp`,
         null,
         { params: { phone: userData.phoneno, otp: phoneOtp } }
       );
@@ -242,7 +245,7 @@ function Profile() {
         setPhoneOtp("");
         toast.success("Phone verified successfully!", { position: "top-right" });
         await axios.post(
-          `http://localhost:8080/api/auth/update-verification`,
+          `${API_BASE}/api/auth/update-verification`,
           { email: userData.email, phoneVerified: true }
         );
       } else {

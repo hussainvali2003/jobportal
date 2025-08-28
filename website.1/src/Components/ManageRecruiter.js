@@ -36,6 +36,9 @@ const ManageRecruiters = () => {
   const [recruiterToDelete, setRecruiterToDelete] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
   useEffect(() => {
     const userRole = localStorage.getItem('userRole');
     if (userRole !== 'ADMIN') {
@@ -49,7 +52,7 @@ const ManageRecruiters = () => {
   const fetchRecruiters = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:8080/api/recruiters/all', {
+      const response = await axios.get(`${API_BASE}/api/recruiters/all`, {
         withCredentials: true
       });
       
@@ -91,7 +94,7 @@ const ManageRecruiters = () => {
 
   const handleSaveEdit = async () => {
     try {
-      await axios.put(`http://localhost:8080/api/recruiters/${editingRecruiter.id}`, editingRecruiter, {
+      await axios.put(`${API_BASE}/api/recruiters/${editingRecruiter.id}`, editingRecruiter, {
         withCredentials: true
       });
       
@@ -110,7 +113,7 @@ const ManageRecruiters = () => {
 
   const handleDelete = async (recruiterId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/recruiters/${recruiterId}`, {
+      await axios.delete(`${API_BASE}/api/recruiters/${recruiterId}`, {
         withCredentials: true
       });
       

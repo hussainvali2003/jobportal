@@ -9,6 +9,7 @@ const Settings = () => {
   const [resumeFile, setResumeFile] = useState(null);
   const [isSavingDocuments, setIsSavingDocuments] = useState(false);
   const [documentSuccess, setDocumentSuccess] = useState(false);
+
   
   // Document states for each type
   const [documents, setDocuments] = useState({

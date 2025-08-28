@@ -126,10 +126,13 @@ const Jobs = () => {
     ]
   };
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
   const fetchJobs = async (page = 0, size = pageSize) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`http://localhost:8080/api/jobs/filter?page=${page}&size=${size}`);
+      const response = await fetch(`${API_BASE}/api/jobs/filter?page=${page}&size=${size}`);
       if (!response.ok) {
         throw new Error('Failed to fetch jobs');
       }
@@ -179,7 +182,7 @@ const Jobs = () => {
       params.append('page', page.toString());
       params.append('size', size.toString());
 
-      const response = await fetch(`http://localhost:8080/api/jobs/filter?${params.toString()}`, {
+      const response = await fetch(`${API_BASE}/api/jobs/filter?${params.toString()}`, {
         signal: abortControllerRef.current.signal
       });
       
@@ -219,11 +222,11 @@ const Jobs = () => {
   const checkApplicationStatus = async (userEmail) => {
     try {
       // Get all jobs first to check application status
-      const allJobsResponse = await fetch("http://localhost:8080/api/jobs");
+      const allJobsResponse = await fetch(`${API_BASE}/api/jobs`);
       const allJobs = await allJobsResponse.json();
       
       const statusPromises = allJobs.map(async (job) => {
-        const response = await fetch(`http://localhost:8080/api/applications/check/${userEmail}/${job.id}`);
+        const response = await fetch(`${API_BASE}/api/applications/check/${userEmail}/${job.id}`);
         const data = await response.json();
         return { jobId: job.id, hasApplied: data.hasApplied };
       });
@@ -344,7 +347,7 @@ const Jobs = () => {
         params.append('page', '0'); // Reset to first page on new search
         params.append('size', pageSize.toString());
 
-        const response = await fetch(`http://localhost:8080/api/jobs/filter?${params.toString()}`, {
+        const response = await fetch(`${API_BASE}/api/jobs/filter?${params.toString()}`, {
           signal: controller.signal
         });
         
@@ -451,7 +454,7 @@ const Jobs = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(`http://localhost:8080/api/applications/user-data/${userEmail}`);
+      const response = await fetch(`${API_BASE}/api/applications/user-data/${userEmail}`);
       const data = await response.json();
       
       console.log("User data response:", data);
@@ -484,7 +487,7 @@ const Jobs = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch("http://localhost:8080/api/applications/submit", {
+      const response = await fetch(`${API_BASE}/api/applications/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -529,7 +532,7 @@ const Jobs = () => {
   };
 
   const handleResumeView = (resumeFileName) => {
-    const resumeUrl = `http://localhost:8080/api/resumes/download/${resumeFileName}`;
+    const resumeUrl = `${API_BASE}/api/resumes/download/${resumeFileName}`;
     window.open(resumeUrl, '_blank');
   };
 

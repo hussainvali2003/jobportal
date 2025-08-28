@@ -40,9 +40,12 @@ const ApplicationsDashboard = () => {
     applyFilters();
   }, [applications, searchTerm, scoreFilter, customScoreThreshold, sortOrder]);
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const fetchApplications = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/applications/all');
+      
+      const response = await fetch(`${API_BASE}/api/applications/all`);
       const data = await response.json();
       setApplications(data);
       setLoading(false);
@@ -81,7 +84,7 @@ const ApplicationsDashboard = () => {
 
   const handleStatusChange = async (applicationId, newStatus, currentApp) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/applications/status/${applicationId}`, {
+      const response = await fetch(`${API_BASE}applications/status/${applicationId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -110,7 +113,7 @@ const ApplicationsDashboard = () => {
 
   const handleRejectionReasonChange = async (applicationId, reason) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/applications/rejection-reason/${applicationId}`, {
+      const response = await fetch(`${API_BASE}/api/applications/rejection-reason/${applicationId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -135,7 +138,7 @@ const ApplicationsDashboard = () => {
                      (scoreFilter === 'all' ? 80 : parseFloat(scoreFilter));
     
     try {
-      const response = await fetch('http://localhost:8080/api/applications/bulk-shortlist', {
+      const response = await fetch(`${API_BASE}/api/applications/bulk-shortlist`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,12 +165,12 @@ const ApplicationsDashboard = () => {
   };
 
   const viewResume = (resumeFileName) => {
-    window.open(`http://localhost:8080/api/resumes/view/${resumeFileName}`, '_blank');
+    window.open(`${API_BASE}/api/resumes/view/${resumeFileName}`, '_blank');
   };
 
   const downloadResume = (resumeFileName, candidateName) => {
     const link = document.createElement('a');
-    link.href = `http://localhost:8080/api/resumes/download/${resumeFileName}`;
+    link.href = `${API_BASE}/api/resumes/download/${resumeFileName}`;
     link.download = `${candidateName}_Resume.pdf`;
     link.click();
   };

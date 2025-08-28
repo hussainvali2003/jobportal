@@ -1058,13 +1058,16 @@ function Navbar() {
   );
   const [isChatOpen, setIsChatOpen] = useState(false);
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
   useEffect(() => {
     const fetchUserInfo = async () => {
       const storedEmail = localStorage.getItem("registeredEmail");
       if (!storedEmail) return;
       
       try {
-        const res = await axios.get(`http://localhost:8080/api/auth/user?email=${storedEmail}`);
+        const res = await axios.get(`${API_BASE}/api/auth/user?email=${storedEmail}`);
         const { name, userrole, profilePic } = res.data;
         setUserInfo({
           name,

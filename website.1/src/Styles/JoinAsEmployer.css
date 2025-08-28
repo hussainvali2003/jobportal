@@ -1,455 +1,810 @@
-/* Professional Join As Employer Styles - Minimalist Design */
-.join-employer-container {
-  min-height: 100vh;
-  background: #fafafa;
-  padding: 20px;
+/* JoinAsEmployer.css - Professional Recruitment Page Styling */
+
+/* CSS Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.jae-container {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #ffffff;
+}
+
+.jae-container-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.jae-hero {
+  position: relative;
+  min-height: 600px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  align-items: center;
+  overflow: hidden;
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    background-color:#2d3748
 }
 
-.join-employer-card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
+.jae-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.jae-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(124, 58, 237, 0.8) 100%); */
+  z-index: 2;
+}
+
+.jae-hero-illustration {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 300px;
+  opacity: 0.3;
+  z-index: 3;
+}
+
+.jae-hero-content {
+  position: relative;
+  z-index: 4;
   width: 100%;
-  padding: 40px;
-  margin: 20px 0;
-  border: 1px solid #e5e5e5;
+  padding: 60px 0;
 }
 
-/* Form Header */
-.form-header {
-  text-align: center;
+.jae-hero-text {
+  max-width: 600px;
+  margin-left: 60px;
+}
+
+.jae-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.jae-hero-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 40px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #e5e5e5;
+  line-height: 1.6;
 }
 
-.join-employer-title {
-  font-size: 28px;
+.jae-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(45deg, #10b981, #059669);
+  color: #ffffff;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: #2c2c2c;
-  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3);
+}
+
+.jae-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.4);
+}
+
+/* Section Headers */
+.jae-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.jae-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.jae-section-subtitle {
+  font-size: 1.2rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Benefits Section */
+.jae-benefits {
+  padding: 100px 0;
+  background: #f9fafb;
+}
+
+.jae-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.jae-benefit-card {
+  background: #ffffff;
+  padding: 40px 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.jae-benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+}
+
+.jae-benefit-card.blue::before {
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.jae-benefit-card.green::before {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.jae-benefit-card.orange::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.jae-benefit-card.purple::before {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+}
+
+.jae-benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.jae-benefit-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.jae-benefit-card.blue .jae-benefit-icon {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.jae-benefit-card.green .jae-benefit-icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.jae-benefit-card.orange .jae-benefit-icon {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.jae-benefit-card.purple .jae-benefit-icon {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.jae-benefit-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.jae-benefit-description {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Form Section */
+.jae-form-section {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.jae-form-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.jae-form-header {
+    background-color:#2d3748;
+  color: #ffffff;
+  padding: 48px 48px 40px;
+  text-align: center;
+}
+
+.jae-form-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.jae-form-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.jae-form {
+  padding: 48px;
+}
+
+.jae-form-section-group {
+  margin-bottom: 48px;
+}
+
+.jae-form-section-title {
+  display: flex;
+  align-items: center;
   gap: 12px;
-  line-height: 1.3;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e5e7eb;
 }
 
-.header-icon {
-  color: #666;
-  font-size: 24px;
+.jae-section-icon {
+  color: #2d3748;
+  font-size: 1.25rem;
 }
 
-.join-employer-subtitle {
-  font-size: 16px;
-  color: #666;
-  margin: 0;
-  line-height: 1.5;
-  font-weight: 400;
+.jae-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 }
 
-/* Form Structure */
-.join-employer-form {
+.jae-form-group {
   display: flex;
   flex-direction: column;
-  gap: 32px;
 }
 
-.form-section {
-  background: #f9f9f9;
-  border-radius: 6px;
-  padding: 24px;
-  border: 1px solid #e5e5e5;
+.jae-form-group.jae-full-width {
+  grid-column: 1 / -1;
 }
 
-.section-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #2c2c2c;
-  margin-bottom: 20px;
+.jae-form-group label {
   display: flex;
   align-items: center;
   gap: 8px;
-  line-height: 1.3;
-}
-
-.section--title-icon {
-  color: #666;
-  font-size: 16px;
-  padding: 6px;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-}
-
-/* Form Grid */
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form-group label {
-  font-size: 14px;
   font-weight: 500;
-  color: #4a4a4a;
+  color: #374151;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.jae-input-icon {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.jae-form-group input,
+.jae-form-group select {
+  padding: 14px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.jae-form-group input:focus,
+.jae-form-group select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.jae-form-group input::placeholder {
+  color: #9ca3af;
+}
+
+.jae-form-actions {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.jae-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #2d3748;
+  color: #ffffff;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.3);
+}
+
+.jae-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(79, 70, 229, 0.4);
+}
+
+.jae-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* FAQ Section */
+.jae-faq {
+  padding: 100px 0;
+  background: #f9fafb;
+}
+
+.jae-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.jae-faq-item {
+  background: #ffffff;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.jae-faq-item:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.jae-faq-question {
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 4px;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  transition: all 0.3s ease;
 }
 
-.input--icon {
-  color: #666;
-  font-size: 20px;
-  padding: auto;
-  /* background: rgba(0, 0, 0, 0.05); */
-  /* border-radius: 3px; */
+.jae-faq-question:hover {
+  background: #f9fafb;
 }
 
-/* Input Styling */
-.input-with-icon,
-.select--with-icon {
+.jae-faq-answer {
+  padding: 0 32px 32px;
+  color: #6b7280;
+  line-height: 1.6;
+  border-top: 1px solid #f3f4f6;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Final CTA Section */
+.jae-final-cta {
+  position: relative;
+  padding: 120px 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.jae-final-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.jae-final-cta .jae-container-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.jae-cta-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 80px;
+  align-items: center;
+}
+
+.jae-cta-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.jae-cta-title .jae-gradient-text {
+  background: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.jae-cta-subtitle {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+.jae-cta-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.jae-benefit-point {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.jae-benefit-point:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.jae-benefit-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.jae-benefit-point:nth-child(1) .jae-benefit-icon {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.jae-benefit-point:nth-child(2) .jae-benefit-icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.jae-benefit-point:nth-child(3) .jae-benefit-icon {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.jae-benefit-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.jae-cta-buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.jae-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  padding: 18px 36px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.3);
+}
+
+.jae-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 50px rgba(16, 185, 129, 0.4);
+}
+
+.jae-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: #ffffff;
+  padding: 18px 36px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.jae-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.jae-cta-illustration {
   position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.input-with-icon input,
-.select--with-icon select {
+.jae-cta-illustration::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.jae-cta-svg {
   width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #d1d1d1;
-  border-radius: 4px;
-  font-size: 14px;
-  color: #2c2c2c;
-  background: white;
-  transition: all 0.2s ease;
-  outline: none;
-  font-weight: 400;
+  height: 350px;
+  max-width: 400px;
+  position: relative;
+  z-index: 2;
 }
 
-.input-with-icon input:focus,
-.select--with-icon select:focus {
-  border-color: #666;
-  box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.1);
-}
-
-.input-with-icon input:hover,
-.select--with-icon select:hover {
-  border-color: #999;
-}
-
-.input-with-icon input::placeholder {
-  color: #999;
-  font-size: 14px;
-}
-
-/* Select Dropdown Styling */
-.select--with-icon select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 12px center;
-  background-repeat: no-repeat;
-  background-size: 16px;
-  padding-right: 40px;
-}
-
-/* Form Actions */
-.form-actions {
-  display: flex;
-  justify-content: center;
-  padding-top: 24px;
-  border-top: 1px solid #e5e5e5;
-  margin-top: 8px;
-}
-
-.submit-btn {
-  background: #2c2c2c;
-  color: white;
-  border: none;
-  padding: 14px 32px;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  min-width: 200px;
-}
-
-.submit-btn:hover {
-  background: #1a1a1a;
-}
-
-.submit-btn:active {
-  transform: translateY(1px);
-}
-
-.submit-btn:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Validation States */
-.form-group input:invalid:not(:placeholder-shown),
-.form-group select:invalid {
-  border-color: #dc3545;
-  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
-}
-
-.form-group input:valid:not(:placeholder-shown) {
-  border-color: #28a745;
-  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.1);
-}
-
-/* Popup Modal Styles */
-.popup-overlay {
+/* Popup Modal */
+.jae-popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
-  animation: fadeIn 0.2s ease;
+  padding: 20px;
 }
 
-.popup-modal {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  max-width: 400px;
-  width: 90%;
-  max-height: 90vh;
-  overflow: hidden;
-  animation: slideIn 0.3s ease;
+.jae-popup-modal {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: popupSlideIn 0.3s ease;
 }
 
-.popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px 0;
-}
-
-.popup-icon {
-  font-size: 32px;
-  padding: 12px;
-  border-radius: 50%;
-}
-
-.popup-icon.success {
-  color: #28a745;
-  background: rgba(40, 167, 69, 0.1);
-}
-
-.popup-icon.error {
-  color: #dc3545;
-  background: rgba(220, 53, 69, 0.1);
-}
-
-.popup-close {
-  background: none;
-  border: none;
-  font-size: 16px;
-  color: #666;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.popup-close:hover {
-  background: #f5f5f5;
-  color: #333;
-}
-
-.popup-content {
-  padding: 16px 24px;
-  text-align: center;
-}
-
-.popup-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #2c2c2c;
-  margin-bottom: 8px;
-}
-
-.popup-message {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.popup-actions {
-  padding: 16px 24px 24px;
-  display: flex;
-  justify-content: center;
-}
-
-.popup-btn {
-  background: #2c2c2c;
-  color: white;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.popup-btn:hover {
-  background: #1a1a1a;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
+@keyframes popupSlideIn {
   from {
     opacity: 0;
-    transform: translateY(-20px) scale(0.95);
+    transform: scale(0.9) translateY(-20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 
+.jae-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 32px 0;
+}
+
+.jae-popup-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.jae-popup-icon.success {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.jae-popup-icon.error {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.jae-popup-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.jae-popup-close:hover {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.jae-popup-content {
+  padding: 24px 32px;
+}
+
+.jae-popup-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.jae-popup-message {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.jae-popup-actions {
+  padding: 0 32px 32px;
+}
+
+.jae-popup-btn {
+  width: 100%;
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
+  color: #ffffff;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.jae-popup-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
+}
+
 /* Responsive Design */
-@media (max-width: 768px) {
-  .join-employer-container {
-    padding: 16px;
-  }
-  
-  .join-employer-card {
-    padding: 24px;
-    border-radius: 6px;
-  }
-  
-  .join-employer-title {
-    font-size: 24px;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .header-icon {
-    font-size: 20px;
-  }
-  
-  .form-grid {
+@media (max-width: 1024px) {
+  .jae-cta-content {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 40px;
+    text-align: center;
   }
   
-  .form-section {
-    padding: 20px;
+  .jae-hero-text {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .jae-hero-title {
+    font-size: 2.5rem;
   }
   
-  .section-title {
-    font-size: 18px;
+  .jae-section-title {
+    font-size: 2rem;
   }
   
-  .submit-btn {
-    width: 100%;
-    padding: 16px;
+  .jae-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .jae-form,
+  .jae-form-header {
+    padding: 32px 24px;
+  }
+  
+  .jae-cta-stats {
+    justify-content: center;
+  }
+  
+  .jae-hero-illustration {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
-  .join-employer-container {
-    padding: 12px;
+  .jae-hero-title {
+    font-size: 2rem;
   }
   
-  .join-employer-card {
-    padding: 20px;
+  .jae-hero-subtitle {
+    font-size: 1.1rem;
   }
   
-  .form-header {
-    margin-bottom: 32px;
-    padding-bottom: 20px;
+  .jae-hero-text {
+    margin-left: 0;
+    text-align: center;
   }
   
-  .join-employer-title {
-    font-size: 22px;
+  .jae-container-inner {
+    padding: 0 16px;
   }
   
-  .join-employer-subtitle {
-    font-size: 15px;
-  }
-  
-  .form-section {
-    padding: 16px;
-  }
-  
-  .section-title {
-    font-size: 16px;
-  }
-  
-  .input-with-icon input,
-  .select--with-icon select {
-    padding: 12px 14px;
-    font-size: 14px;
-  }
-  
-  .popup-modal {
-    width: 95%;
-  }
-}
-
-/* Focus ring for accessibility */
-.input-with-icon input:focus-visible,
-.select--with-icon select:focus-visible,
-.submit-btn:focus-visible,
-.popup-btn:focus-visible,
-.popup-close:focus-visible {
-  outline: 2px solid #666;
-  outline-offset: 2px;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .join-employer-card {
-    border: 2px solid #000;
-  }
-  
-  .input-with-icon input,
-  .select--with-icon select {
-    border: 2px solid #000;
-  }
-  
-  .submit-btn {
-    background: #000;
-    border: 2px solid #000;
+  .jae-popup-modal {
+    margin: 20px;
   }
 }

@@ -62,6 +62,9 @@ const navigate = useNavigate();
     fetchJobs();
   }, [navigate]);
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
   const fetchCurrentUser = async () => {
     try {
       const userRole = localStorage.getItem('userRole');
@@ -77,7 +80,7 @@ const navigate = useNavigate();
         });
       } else {
         try {
-          const response = await axios.get('http://localhost:8080/api/recruiters/me', {
+          const response = await axios.get(`${API_BASE}/api/recruiters/me`, {
             withCredentials: true
           });
           setCurrentUser({
@@ -104,7 +107,7 @@ const navigate = useNavigate();
   const fetchJobs = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:8080/api/jobs', {
+      const response = await axios.get(`${API_BASE}/api/jobs`, {
         withCredentials: true
       });
       
@@ -224,7 +227,7 @@ const navigate = useNavigate();
 
   const handleSaveEdit = async () => {
     try {
-      await axios.put(`http://localhost:8080/api/jobs/${editingJob.id}`, editingJob, {
+      await axios.put(`${API_BASE}/api/jobs/${editingJob.id}`, editingJob, {
         withCredentials: true
       });
       
@@ -243,7 +246,7 @@ const navigate = useNavigate();
 
   const handleDelete = async (jobId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/jobs/${jobId}`, {
+      await axios.delete(`${API_BASE}/api/jobs/${jobId}`, {
         withCredentials: true
       });
       

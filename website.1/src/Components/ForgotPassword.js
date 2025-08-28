@@ -8,10 +8,13 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/api/auth/forgot-password", null, { params: { email } });
+      await axios.post(`${API_BASE}/api/auth/forgot-password`, null, { params: { email } });
       alert("OTP sent to your email");
       navigate(`/reset-password?email=${encodeURIComponent(email)}`);
     } catch (error) {

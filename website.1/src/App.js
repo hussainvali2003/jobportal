@@ -58,11 +58,14 @@ function AppWrapper() {
     localStorage.removeItem("userRole");
     setUserRole(null);
   };
+
+   const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
     const fetchJobs = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:8080/api/jobs");
+        const response = await axios.get(`${API_BASE}/api/jobs`);
         setJobs(response.data);
         setError('');
       } catch (error) {

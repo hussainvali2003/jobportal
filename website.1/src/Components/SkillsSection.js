@@ -23,6 +23,9 @@ const KeySkills = () => {
   const [skillOptions, setSkillOptions] = useState(toOptions(initialSkills));
   const [isLoading, setIsLoading] = useState(false);
   const userEmail = localStorage.getItem("registeredEmail");
+
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
     if (userEmail) {
       fetchSkills();
@@ -31,7 +34,7 @@ const KeySkills = () => {
   const fetchSkills = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8080/api/keyskills/${userEmail}`);
+      const response = await axios.get(`${API_BASE}/api/keyskills/${userEmail}`);
       const fetchedSkills = response.data.map(skill => skill.skillname);
       setSkills(fetchedSkills);
     } catch (error) {
@@ -59,7 +62,7 @@ const KeySkills = () => {
     try {
       // Save skills to backend
       const savePromises = newSkills.map(skill =>
-        axios.post(`http://localhost:8080/api/keyskills/${userEmail}`, {
+        axios.post(`${API_BASE}/api/keyskills/${userEmail}`, {
           skillname: skill
         })
       );
@@ -93,10 +96,10 @@ useUpdateCompletion({
     }
     setIsLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8080/api/keyskills/${userEmail}`);
+      const response = await axios.get(`${API_BASE}/api/keyskills/${userEmail}`);
       const skillObject = response.data.find(s => s.skillname === skillToDelete);
       if (skillObject?.id) {
-        await axios.delete(`http://localhost:8080/api/keyskills/${skillObject.id}`);
+        await axios.delete(`${API_BASE}/api/keyskills/${skillObject.id}`);
         setSkills(prev => prev.filter(skill => skill !== skillToDelete));
         toast.success(`"${skillToDelete}" deleted successfully`);
       }

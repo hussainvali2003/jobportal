@@ -33,6 +33,8 @@ const RecruiterResetPassword = () => {
     }, 5000);
   };
 
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   // Timer countdown
   useEffect(() => {
     if (!email) {
@@ -89,7 +91,7 @@ const RecruiterResetPassword = () => {
     }
 
     try {
-      await axios.post("http://localhost:8080/api/auth/recruiter-reset-password", null, {
+      await axios.post(`${API_BASE}/api/auth/recruiter-reset-password`, null, {
         params: { email, otp, newPassword }
       });
       showNotification("Password reset successful! Please login with your new password.", "success");

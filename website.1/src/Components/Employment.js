@@ -32,9 +32,13 @@ const Employment = () => {
       fetchEmployments();
     }
   }, [userEmail]);
+
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
   const fetchEmployments = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/employments/${userEmail}`);
+      const response = await axios.get(`${API_BASE}/api/employments/${userEmail}`);
       setEmployments(response.data);
     } catch (error) {
       console.error("Error fetching employments:", error);
@@ -68,10 +72,10 @@ const Employment = () => {
     if (!validateForm()) return;
     try {
       if (editMode) {
-        await axios.put(`http://localhost:8080/api/employments/${editingId}`, formData);
+        await axios.put(`${API_BASE}/api/employments/${editingId}`, formData);
         toast.success("Employment updated successfully!");
       } else {
-        await axios.post(`http://localhost:8080/api/employments/${userEmail}`, formData);
+        await axios.post(`${API_BASE}/api/employments/${userEmail}`, formData);
         toast.success("Employment added successfully!");
       }
       fetchEmployments();
@@ -84,7 +88,7 @@ const Employment = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this employment record?")) {
       try {
-        await axios.delete(`http://localhost:8080/api/employments/${id}`);
+        await axios.delete(`${API_BASE}/api/employments/${id}`);
         fetchEmployments();
         toast.success("Employment deleted successfully!");
       } catch (error) {

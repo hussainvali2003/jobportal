@@ -18,10 +18,12 @@ function EmailVerification() {
     }
   }, [resendCooldown]);
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const handleSendOtp = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/auth/send-email-otp",
+        `${API_BASE}/api/auth/send-email-otp`,
         null,
         { params: { email } }
       );
@@ -36,7 +38,7 @@ function EmailVerification() {
   const handleVerifyOtp = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/auth/verify-email-otp",
+        `${API_BASE}/api/auth/verify-email-otp`,
         null,
         {
           params: { email, otp },

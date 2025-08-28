@@ -11,9 +11,11 @@ const ReviewComponent = () => {
   const [hover, setHover] = useState(0);
   const [showModal, setShowModal] = useState(false); // NEW
 
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const fetchAllReviews = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/reviews');
+      const response = await axios.get(`${API_BASE}/api/reviews`);
       setReviews(response.data);
     } catch (error) {
       console.error('Error fetching all reviews:', error);
@@ -30,7 +32,7 @@ const ReviewComponent = () => {
     if (!email) return alert('Email is required. Please log in.');
 
     try {
-      await axios.post(`http://localhost:8080/api/reviews/${email}`, {
+      await axios.post(`${API_BASE}/api/reviews/${email}`, {
         name,
         rating,
         description,

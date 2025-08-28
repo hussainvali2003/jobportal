@@ -766,9 +766,11 @@ const ChatBox = ({ isOpen, onClose }) => {
     { id: "orange", name: "Sunset", icon: "🌅" },
   ];
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const apiOptions = [
     { id: "MM", name: "MM", endpoint: "" },
-    { id: "MM_ADVISOR", name: "MM Advisor", endpoint: "http://localhost:8080/api/groq/chat" }
+    { id: "MM_ADVISOR", name: "MM Advisor", endpoint: `${API_BASE}/api/groq/chat` }
   ];
  
   const quickActions = [

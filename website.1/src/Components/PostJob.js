@@ -410,6 +410,8 @@ const PostJobs = () => {
     message: "" 
   });
 
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
     const userRole = localStorage.getItem("userRole");
     if (userRole !== "RECRUITER" && userRole !== "ADMIN") {
@@ -449,7 +451,7 @@ const PostJobs = () => {
     setJobIdValidation({ isValid: null, isChecking: true, message: "Checking..." });
 
     try {
-      const response = await axios.get(`http://localhost:8080/api/jobs/check-job-id/${jobId}`);
+      const response = await axios.get(`${API_BASE}/api/jobs/check-job-id/${jobId}`);
       
       if (response.data.exists) {
         setJobIdValidation({ 
@@ -521,7 +523,7 @@ const PostJobs = () => {
       };
       
       const response = await axios.post(
-        "http://localhost:8080/api/jobs/post",
+        `${API_BASE}/api/jobs/post`,
         jobData,
         {
           headers: {

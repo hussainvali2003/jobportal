@@ -20,6 +20,10 @@ const ITSkills = () => {
     checkFn: () => skills.length > 0,
     dependencies: [skills],
   });
+
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
+
   const userEmail = localStorage.getItem("registeredEmail");
   useEffect(() => {
     if (userEmail) {
@@ -28,7 +32,7 @@ const ITSkills = () => {
   }, [userEmail]);
   const fetchSkills = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/itskills/${userEmail}`);
+      const response = await axios.get(`${API_BASE}/api/itskills/${userEmail}`);
       setSkills(response.data);
     } catch (error) {
       console.error("Error fetching IT skills:", error);
@@ -48,10 +52,10 @@ const handleSave = async () => {
   }
   try {
     if (isEditing) {
-      await axios.put(`http://localhost:8080/api/itskills/${editId}`, formData);
+      await axios.put(`${API_BASE}/api/itskills/${editId}`, formData);
       toast.success("IT-Skill successfully updated!");
     } else {
-      await axios.post(`http://localhost:8080/api/itskills/${userEmail}`, formData);
+      await axios.post(`${API_BASE}/api/itskills/${userEmail}`, formData);
       toast.success("IT-Skill successfully added!");
     }
     fetchSkills();
@@ -74,7 +78,7 @@ const handleEdit = (skill) => {
 };
 const handleDelete = async (id) => {
   try {
-    await axios.delete(`http://localhost:8080/api/itskills/${id}`);
+    await axios.delete(`${API_BASE}/api/itskills/${id}`);
     toast.error("IT-Skill successfully deleted!");
     fetchSkills();
   } catch (error) {

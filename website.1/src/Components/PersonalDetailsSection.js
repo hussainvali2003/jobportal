@@ -24,6 +24,9 @@ const PersonalDetails = () => {
     emergencyContact: '',
     differentlyAbled: 'No',
   });
+
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const [newLanguage, setNewLanguage] = useState('');
   const [submittedData, setSubmittedData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +38,7 @@ const PersonalDetails = () => {
   const fetchPersonalDetails = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`http://localhost:8080/api/personal-details/${userEmail}`);
+      const response = await axios.get(`${API_BASE}/api/personal-details/${userEmail}`);
       if (response.data) {
         const data = response.data;
         setSubmittedData({
@@ -62,6 +65,10 @@ const PersonalDetails = () => {
       setIsLoading(false);
     }
   };
+
+
+
+
   const toggleForm = () => setShowForm(!showForm);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -121,12 +128,12 @@ const PersonalDetails = () => {
       let response;
       if (submittedData && submittedData.id) {
         response = await axios.put(
-          `http://localhost:8080/api/personal-details/${submittedData.id}`,
+          `${API_BASE}/api/personal-details/${submittedData.id}`,
           dataToSend
         );
       } else {
         response = await axios.post(
-          `http://localhost:8080/api/personal-details/${userEmail}`,
+          `${API_BASE}/api/personal-details/${userEmail}`,
           dataToSend
         );
       }
