@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; // hi ia m 
 import "../Styles/About.css";
 import { FaEye, FaHandshake, FaRocket, FaGlobe } from "react-icons/fa";
 const About = () => {
